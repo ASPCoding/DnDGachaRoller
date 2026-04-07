@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import AppStore from '../stores/AppStore'
 import "./Dice.css"
 
-
-export default function Dice(){
+export default function Dice({num}:{num:number}){
   const [rolling, setRolling] = useState(true)
   
+
   useEffect(() => {
     const toggleRoll = () => {
       setRolling(AppStore.rolling)
@@ -50,7 +50,7 @@ export default function Dice(){
         <CurrentDice/>
 
         <div id="num-wrapper">
-          <p>er?</p>
+          <p>{AppStore.diceResults[num]}</p>
         </div>
       </div>
     </>

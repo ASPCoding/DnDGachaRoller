@@ -12,10 +12,10 @@ export default function DiceRoller(){
   return(
     <>
       <div>
-        <Dice/>
-        <Dice/>
-        <Dice/>
-        <Dice/>
+        <Dice num={0}/>
+        <Dice num={1}/>
+        <Dice num={2}/>
+        <Dice num={3}/>
         <button onClick={randomize}></button>
       </div>
     </>
