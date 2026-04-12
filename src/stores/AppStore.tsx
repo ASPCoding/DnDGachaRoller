@@ -32,6 +32,17 @@ class AppStore extends EventEmitter{
     }
   }
 
+  rollTroll(){
+    if(Math.random() > 0.9){
+      return true
+    }
+    return false
+  }
+
+  getRolling(){
+    return this.rolling
+  }
+
   toggleRoll(){
     this.rolling = !this.rolling;
     this.emit("toggleRoll")
