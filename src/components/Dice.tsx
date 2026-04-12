@@ -1,14 +1,24 @@
 import { useState, useEffect } from 'react'
+import Glow from './Glow'
 import AppStore from '../stores/AppStore'
 import "./Dice.css"
 
 export default function Dice({num}:{num:number}){
-  const [rolling, setRolling] = useState(true)
-  
+  const [rolling, setRolling] = useState(false)
+
+  function setTimer(){
+    if(AppStore.getRolling()){
+        setTimeout(() => {
+          setRolling(false)
+        }, 5000)
+      }
+  }
 
   useEffect(() => {
     const toggleRoll = () => {
-      setRolling(AppStore.rolling)
+      setRolling(AppStore.getRolling())
+      console.log(AppStore.getRolling())
+      setTimer()
     }
     
     AppStore.on("toggleRoll", toggleRoll)
@@ -20,17 +30,26 @@ export default function Dice({num}:{num:number}){
 
   function RollingDice(){
     return(
-      <svg id="die" viewBox="0 0 100 100">
-        <path id="hexagon"/>
-      </svg>
+      <>
+        <svg id="die" viewBox="0 0 100 100">
+          <path id="hexagon"/>
+        </svg>
+      </>
+      
     );
   }
 
   function StationaryDice(){
     return(
-      <svg id="square" viewBox="0 0 100 100">
-        <path id="square-border"/>
-      </svg>
+      <>
+        <svg id="square" viewBox="0 0 100 100">
+          <path id="square-border"/>
+        </svg>
+        <div id="num-wrapper">
+          <p>{AppStore.diceResults[num]}</p>
+        </div>
+      </>
+      
     )
   }
 
@@ -48,10 +67,7 @@ export default function Dice({num}:{num:number}){
     <>
       <div id="die-wrapper">
         <CurrentDice/>
-
-        <div id="num-wrapper">
-          <p>{AppStore.diceResults[num]}</p>
-        </div>
+        <Glow num={num}/>
       </div>
     </>
   )
