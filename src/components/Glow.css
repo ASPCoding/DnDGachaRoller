@@ -1,0 +1,115 @@
+@keyframes playCommon {
+  100% { background-color: lightblue; }
+}
+
+@keyframes playUncommon {
+  40% { background-color: lightblue; }
+  100% { background-color: magenta; }
+}
+
+@keyframes playRare {
+  40% { background-color: lightblue; }
+  80% { background-color: magenta; }
+  100% { background-color: gold; }
+}
+
+@keyframes playFlip {
+  80% { background-color: lightblue; }
+  100% { background-color: gold; }
+}
+
+@keyframes playTroll {
+  40% { background-color: lightblue; }
+  80% { background-color: magenta; }
+  90% { background-color: gold; }
+  100% { background-color: lightblue; }
+}
+
+#glow-container{
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.None{
+  position:absolute;
+}
+
+.common{
+  position:absolute;
+  filter: drop-shadow(white 0rem 0rem .5rem);
+  opacity: 50%;
+  background-color: lightblue;
+  border-radius: 50%;
+
+  animation: playCommon 5s linear;
+}
+
+.uncommon{
+  position:absolute;
+  filter: drop-shadow(white 0rem 0rem .5rem);
+  opacity: 50%;
+  background-color: lightblue;
+  border-radius: 50%;
+
+  animation: playUncommon 5s linear;
+}
+
+.rare{
+  position:absolute;
+  filter: drop-shadow(white 0rem 0rem .5rem);
+  opacity: 50%;
+  background-color: lightblue;
+  border-radius: 50%;
+
+  animation: playRare 5s linear;
+}
+
+.flip{
+  position:absolute;
+  filter: drop-shadow(white 0rem 0rem .5rem);
+  opacity: 50%;
+  background-color: lightblue;
+  border-radius: 50%;
+
+  animation: playFlip 5s linear;
+}
+
+.troll{
+  position:absolute;
+  filter: drop-shadow(white 0rem 0rem .5rem);
+  opacity: 50%;
+  background-color: lightblue;
+  border-radius: 50%;
+
+  animation: playTroll 5s linear;
+}
+
+#glow1{
+  height: 100%;
+  width: 100%;
+}
+
+#glow2{
+  top:5%;
+  left:5%;
+  height: 90%;
+  width: 90%;
+}
+
+#glow3{
+  top: 10%;
+  left:10%;
+  height: 80%;
+  width: 80%;
+}
+
+#glow4{
+  top:15%;
+  left:15%;
+  height: 70%;
+  width: 70%;
+}
