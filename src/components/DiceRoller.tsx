@@ -7,12 +7,18 @@ import './DiceRoller.css'
 function randomize(){
   AppStore.randomize();
   AppStore.toggleRoll();
-  console.log(AppStore.diceResults)
 }
 
 export default function DiceRoller(){
   const [rolling, setRolling] = useState(false)
-  const [cover, setCover] = useState("None")
+  const [cover, setCover] = useState("cover")
+  const [first, setFirst] = useState("first")
+
+  function firstRandomize(){
+      AppStore.randomize();
+      AppStore.toggleRoll();
+      setFirst("second")
+  }
 
   function toggleRoll(){
     setCover("cover")
@@ -47,8 +53,9 @@ export default function DiceRoller(){
         </div>
         <div id="controller-wrapper">
           <DiceCalculation/>
-          <button onClick={randomize}> Roll All</button>
+          <button onClick={randomize}>Roll All</button>
           <div id={cover}/>
+          <button id={first} onClick={firstRandomize}>Roll All</button>
         </div>
       </div>
     </>
