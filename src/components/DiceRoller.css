@@ -9,8 +9,39 @@
   align-items: center;
 }
 
+#controller-wrapper{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+#cover{
+  position:absolute;
+  background: black;
+  top:0%;
+  left:0%;
+  height:100%;
+  width: 100%;
+}
+
 #dice{
   display:flex;
   justify-content: center;
   align-items: center;
+}
+
+#first{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#second{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(0% 0%);
 }

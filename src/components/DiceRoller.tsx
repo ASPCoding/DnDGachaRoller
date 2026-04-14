@@ -1,14 +1,47 @@
+import {useEffect, useState} from "react"
 import Dice from "./Dice"
+import DiceCalculation from "./DiceCalculation"
 import AppStore from "../stores/AppStore"
 import './DiceRoller.css'
 
 function randomize(){
   AppStore.randomize();
   AppStore.toggleRoll();
-  console.log(AppStore.diceResults)
 }
 
 export default function DiceRoller(){
+  const [rolling, setRolling] = useState(false)
+  const [cover, setCover] = useState("cover")
+  const [first, setFirst] = useState("first")
+
+  function firstRandomize(){
+      AppStore.randomize();
+      AppStore.toggleRoll();
+      setFirst("second")
+  }
+
+  function toggleRoll(){
+    setCover("cover")
+    setTimeout(() => {
+      AppStore.toggleRoll()
+      setCover("None")
+    },5000)
+  }
+
+  useEffect(() => {
+    function updateRolling(){
+      setRolling(AppStore.getRolling())
+      if(AppStore.getRolling()){
+        toggleRoll()
+      }
+    }
+    AppStore.on("toggleRoll", updateRolling)
+
+    return () => {
+      AppStore.off("toggleRoll", updateRolling)
+    }
+  },[rolling])
+
   return(
     <>
       <div id="roller-wrapper">
@@ -18,8 +51,11 @@ export default function DiceRoller(){
           <Dice num={2}/>
           <Dice num={3}/>
         </div>
-        <div>
-          <button onClick={randomize}> Roll All</button>
+        <div id="controller-wrapper">
+          <DiceCalculation/>
+          <button onClick={randomize}>Roll All</button>
+          <div id={cover}/>
+          <button id={first} onClick={firstRandomize}>Roll All</button>
         </div>
       </div>
     </>
