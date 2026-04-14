@@ -47,6 +47,31 @@ class AppStore extends EventEmitter{
     this.rolling = !this.rolling;
     this.emit("toggleRoll")
   }
+
+  getIndexOfLowest(){
+    if(this.diceResults.length < 1){
+      return -1;
+    }
+    let smallestIndex = 0;
+    for(let i = 1; i < this.diceResults.length; ++i){
+      if(this.diceResults[i] < this.diceResults[smallestIndex]){
+        smallestIndex = i;
+      }
+    }
+    return smallestIndex;
+  }
+
+  getDiceResult(){
+    let smallestIndex = this.getIndexOfLowest()
+    let result = 0;
+    for(let index = 0; index < this.diceResults.length; ++index){
+      if(index == smallestIndex){
+        continue
+      }
+      result += this.diceResults[index]
+    }
+    return result
+  }
 }
 
 const store = new AppStore()
