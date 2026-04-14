@@ -12,10 +12,13 @@ function randomize(){
 
 export default function DiceRoller(){
   const [rolling, setRolling] = useState(false)
+  const [cover, setCover] = useState("None")
 
   function toggleRoll(){
+    setCover("cover")
     setTimeout(() => {
       AppStore.toggleRoll()
+      setCover("None")
     },5000)
   }
 
@@ -45,6 +48,7 @@ export default function DiceRoller(){
         <div id="controller-wrapper">
           <DiceCalculation/>
           <button onClick={randomize}> Roll All</button>
+          <div id={cover}/>
         </div>
       </div>
     </>

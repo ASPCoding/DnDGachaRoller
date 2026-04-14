@@ -11,8 +11,18 @@
 
 #controller-wrapper{
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
+}
+
+#cover{
+  position:absolute;
+  background: black;
+  top:0%;
+  left:0%;
+  height:100%;
+  width: 100%;
 }
 
 #dice{
