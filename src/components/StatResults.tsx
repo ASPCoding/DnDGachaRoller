@@ -24,7 +24,7 @@ export default function StatResults(){
     <>
       <div id="stat-wrapper">
         {results.map((item) =>
-          <div>
+          <div className="box">
             <h1>{item}</h1>
           </div>
         )}
