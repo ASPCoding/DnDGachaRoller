@@ -12,6 +12,8 @@ class AppStore extends EventEmitter{
   diceResults:number[];
   rolling: boolean;
 
+  statResults:number[]
+
   constructor(){
     super();
     this.strength = "-";
@@ -23,6 +25,7 @@ class AppStore extends EventEmitter{
 
     this.diceResults = [];
     this.rolling = false;
+    this.statResults = [0, 0, 0, 0, 0, 0];
   }
 
   randomize(){
@@ -71,6 +74,19 @@ class AppStore extends EventEmitter{
       result += this.diceResults[index]
     }
     return result
+  }
+
+  addStatResult(result:number){
+    for(let index = 0; index < this.statResults.length; ++index){
+      if(this.statResults[index] == 0){
+        this.statResults[index] = result
+        return
+      }
+    }
+  }
+
+  getStatResults(){
+    return this.statResults
   }
 }
 
