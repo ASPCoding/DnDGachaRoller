@@ -1,6 +1,6 @@
 #roller-wrapper{
   width: 100%;
-  height: 50%;
+  height: 100%;
   
   display: grid;
   grid-template-rows: 80% 20%;
