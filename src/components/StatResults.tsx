@@ -4,6 +4,8 @@ import "./StatResults.css"
 
 export default function StatResults(){
   const [results, setResults] = useState([0, 0, 0, 0, 0, 0])
+  const [states, setStates] = useState([false,false,false,false,false,false])
+
 
   function addResult(){
     setTimeout(() => {
@@ -11,6 +13,11 @@ export default function StatResults(){
     }, 5100)
   }
   
+  function manageStats(index: number){
+    states[index] = !states[index]
+    setStates([...states])
+  }
+
   useEffect(() => {
     AppStore.on("toggleRoll", addResult)
 
@@ -23,9 +30,9 @@ export default function StatResults(){
   return(
     <>
       <div id="stat-wrapper">
-        {results.map((item) =>
+        {results.map((item, index) =>
           <div className="box">
-            <h1>{item}</h1>
+            <button className={`clicked-${states[index]}`} onClick={()=>{manageStats(index)}}>{item}</button>
           </div>
         )}
       </div>

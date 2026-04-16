@@ -9,3 +9,15 @@
   grid-template-columns: 33% 33% 33%;
   grid-template-rows: 50% 50%;
 }
+
+.clicked-true{
+  height:100%;
+  width:100%;
+  background:blue;
+}
+
+.clicked-false{
+  height: 100%;
+  width: 100%;
+  background:purple;
+}
