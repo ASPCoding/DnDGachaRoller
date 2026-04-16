@@ -14,6 +14,14 @@ export default function StatResults(){
   }
   
   function manageStats(index: number){
+    let prevIndex = AppStore.getSelectedNumber()
+    if(prevIndex != index){
+      states[prevIndex] = !states[prevIndex]
+      AppStore.setSelectedNumber(index)
+    }else{
+      AppStore.removeSelectedNumber();
+      setResults([...AppStore.getStatResults()])
+    }
     states[index] = !states[index]
     setStates([...states])
   }
