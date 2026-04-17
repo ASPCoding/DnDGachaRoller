@@ -10,14 +10,20 @@
   grid-template-rows: 50% 50%;
 }
 
-.clicked-true{
+.clicked-1{
   height:100%;
   width:100%;
   background:blue;
 }
 
-.clicked-false{
+.clicked-0{
   height: 100%;
   width: 100%;
   background:purple;
+}
+
+.clicked--1{
+  height: 100%;
+  width: 100%;
+  background:red;
 }

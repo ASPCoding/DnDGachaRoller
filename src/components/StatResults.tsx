@@ -4,7 +4,7 @@ import "./StatResults.css"
 
 export default function StatResults(){
   const [results, setResults] = useState([0, 0, 0, 0, 0, 0])
-  const [states, setStates] = useState([false,false,false,false,false,false])
+  const [states, setStates] = useState([0, 0, 0, 0, 0, 0])
 
 
   function addResult(){
@@ -16,21 +16,31 @@ export default function StatResults(){
   function manageStats(index: number){
     let prevIndex = AppStore.getSelectedNumber()
     if(prevIndex != index){
-      states[prevIndex] = !states[prevIndex]
+      states[prevIndex] = ~states[prevIndex]
       AppStore.setSelectedNumber(index)
     }else{
-      AppStore.removeSelectedNumber();
-      setResults([...AppStore.getStatResults()])
+      if(states[index] == -1){
+        AppStore.returnNumber()
+      }else{
+        AppStore.removeSelectedNumber()
+        setResults([...AppStore.getStatResults()])
+      }
     }
-    states[index] = !states[index]
+    states[index] = ~states[index]
     setStates([...states])
+  }
+
+  function setStat(){
+    states[AppStore.getSelectedNumber()] = -1;
   }
 
   useEffect(() => {
     AppStore.on("toggleRoll", addResult)
+    AppStore.on("twoSelected", setStat)
 
     return () => {
       AppStore.off("toggleRoll", addResult)
+      AppStore.off("twoSelected", setStat)
     }
 
   },[results])
