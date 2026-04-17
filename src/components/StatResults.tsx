@@ -40,7 +40,11 @@ export default function StatResults(){
       <div id="stat-wrapper">
         {results.map((item, index) =>
           <div className="box">
-            <button className={`clicked-${states[index]}`} onClick={()=>{manageStats(index)}}>{item}</button>
+            <button className={`clicked-${states[index]}`} onClick={()=>{manageStats(index)}}>
+              <h1>
+                {item}
+              </h1>
+            </button>
           </div>
         )}
       </div>
