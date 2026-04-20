@@ -1,0 +1,29 @@
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#stat-wrapper{
+  display:grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 50% 50%;
+}
+
+.clicked-1{
+  height:100%;
+  width:100%;
+  background:purple;
+}
+
+.clicked-0{
+  height: 100%;
+  width: 100%;
+  background:blue;
+}
+
+.clicked--1{
+  height: 100%;
+  width: 100%;
+  background:red;
+}

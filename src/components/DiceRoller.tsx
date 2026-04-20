@@ -24,6 +24,7 @@ export default function DiceRoller(){
     setCover("cover")
     setTimeout(() => {
       AppStore.toggleRoll()
+      AppStore.addStatResult(AppStore.getDiceResult())
       setCover("None")
     },5000)
   }
