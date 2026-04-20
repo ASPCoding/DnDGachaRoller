@@ -7,4 +7,5 @@ export default defineConfig({
   plugins: [react(),
     nodePolyfills()
   ],
+  base: "/DnDGachaRoller/"
 })
