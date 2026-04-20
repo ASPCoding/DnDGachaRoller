@@ -15,3 +15,11 @@
   border: 5px solid purple;
   width: 50%;
 }
+
+#true{
+  background: purple;
+}
+
+#false{
+  background: blue;
+}
