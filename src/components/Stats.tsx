@@ -5,12 +5,12 @@ export default function Stats() {
   return(
     <>
       <div id="stats-wrapper">
-        {StatBox("Strength")}
-        {StatBox("Dexterity")}
-        {StatBox("Constitution")}
-        {StatBox("Intelligence")}
-        {StatBox("Wisdom")}
-        {StatBox("Charisma")}
+        <StatBox name="Strength"/>
+        <StatBox name="Dexterity"/>
+        <StatBox name="Constitution"/>
+        <StatBox name="Intelligence"/>
+        <StatBox name="Wisdom"/>
+        <StatBox name="Charisma"/>
       </div>
     </>
   )
