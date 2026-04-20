@@ -12,26 +12,37 @@ export default function StatResults(){
       setResults([...AppStore.getStatResults()])
     }, 5100)
   }
-  
+
   function manageStats(index: number){
     let prevIndex = AppStore.getSelectedNumber()
-    if(prevIndex != index){
-      states[prevIndex] = ~states[prevIndex]
-      AppStore.setSelectedNumber(index)
-    }else{
+    if(prevIndex == index){
       if(states[index] == -1){
-        AppStore.returnNumber()
+        AppStore.returnNumber(index)
+        AppStore.setSelectedNumber(-1)
+        states[index] = 0;
+        AppStore.setSelectedNumber(index)
+        setStates([...states])
+        return
       }else{
         AppStore.removeSelectedNumber()
         setResults([...AppStore.getStatResults()])
+        states[index] = +!states[index]
+      }
+    }else{
+      if(prevIndex != -1 && states[prevIndex] != -1){
+        states[prevIndex] = 0;
+      }
+      if(states[index] != -1){
+        states[index] = +!states[index]
       }
     }
-    states[index] = ~states[index]
+    AppStore.setSelectedNumber(index)
     setStates([...states])
   }
 
   function setStat(){
     states[AppStore.getSelectedNumber()] = -1;
+    setStates([...states])
   }
 
   useEffect(() => {
