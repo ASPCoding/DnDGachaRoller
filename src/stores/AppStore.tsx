@@ -127,13 +127,10 @@ class AppStore extends EventEmitter{
   checkTwoSelected(){
     if(this.selectedStat != "" && this.selectedNumber != -1 && this.confirmedStats[this.selectedNumber]  == "" && 
       this.getStat(this.selectedStat) == "-" && this.statResults[this.selectedNumber] != 0){
-      console.log(this.selectedNumber)
-      console.log(this.confirmedStats)
       this.confirmedStats[this.selectedNumber] = this.selectedStat;
       this.addToStat();
       this.emit("twoSelected")
       this.selectedStat = "";
-      this.selectedNumber = -1;
     }
   }
 

@@ -10,10 +10,6 @@ export default function stat_box({name}:{name: string}){
     setSelected(!selected)
     if(!selected){
       AppStore.setSelectedStat(name)
-      console.log(AppStore.getSelectedNumber())
-      console.log(String(AppStore.getSelectedStatNumber()))
-      console.log(value)
-      console.log(selected)
     }else{
       AppStore.setSelectedStat("")
     }
