@@ -19,15 +19,14 @@ export default function StatResults(){
       if(states[index] == -1){
         AppStore.returnNumber(index)
         AppStore.setSelectedNumber(-1)
-        states[index] = 0;
-        AppStore.setSelectedNumber(index)
-        setStates([...states])
-        return
       }else{
         AppStore.removeSelectedNumber()
+        AppStore.setSelectedNumber(-1)
         setResults([...AppStore.getStatResults()])
-        states[index] = +!states[index]
       }
+      states[index] = 0;
+      setStates([...states])
+      return
     }else{
       if(prevIndex != -1 && states[prevIndex] != -1){
         states[prevIndex] = 0;
@@ -38,14 +37,19 @@ export default function StatResults(){
     }
     AppStore.setSelectedNumber(index)
     setStates([...states])
+    console.log(states)
   }
 
   function setStat(){
+    console.log(states)
     states[AppStore.getSelectedNumber()] = -1;
+    AppStore.setSelectedNumber(-1)
     setStates([...states])
   }
 
   useEffect(() => {
+    console.log(states)
+
     AppStore.on("toggleRoll", addResult)
     AppStore.on("twoSelected", setStat)
 
@@ -54,7 +58,7 @@ export default function StatResults(){
       AppStore.off("twoSelected", setStat)
     }
 
-  },[results])
+  },[results, states])
 
   return(
     <>
