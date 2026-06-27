@@ -29,13 +29,20 @@ export default function stat_box({name}:{name: string}){
     }
   }
 
+  function createUpdated(){
+    setValue(AppStore.getStat(name))
+    setSelected(false)
+  }
+
   useEffect(() => {
     AppStore.on("statSelected", updateSelected)
     AppStore.on("twoSelected", setStat)
+    AppStore.on("updateData", createUpdated)
 
     return () => {
       AppStore.off("statSelected", updateSelected)
       AppStore.off("twoSelected", setStat)
+      AppStore.off("updateData", createUpdated)
     }
   },[])
 
