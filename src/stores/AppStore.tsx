@@ -301,7 +301,7 @@ class AppStore extends EventEmitter{
     updateDoc(docRef, {
       Strength: this.strength
     }).then((docRef) => {
-      console.log("Strength updated")
+      console.log("Strength updated", docRef)
     }).catch((error) => {
       console.error("Update went wrong", error)
     })
@@ -311,7 +311,7 @@ class AppStore extends EventEmitter{
     updateDoc(docRef, {
       Dexterity: this.dexterity
     }).then((docRef) => {
-      console.log("Dexterity updated")
+      console.log("Dexterity updated", docRef)
     }).catch((error) => {
       console.error("Update went wrong", error)
     })
@@ -321,7 +321,7 @@ class AppStore extends EventEmitter{
     updateDoc(docRef, {
       Constitution: this.constitution
     }).then((docRef) => {
-      console.log("Constitution updated")
+      console.log("Constitution updated", docRef)
     }).catch((error) => {
       console.error("Update went wrong", error)
     })
@@ -331,7 +331,7 @@ class AppStore extends EventEmitter{
     updateDoc(docRef, {
       Intelligence: this.intelligence
     }).then((docRef) => {
-      console.log("Intelligence updated")
+      console.log("Intelligence updated", docRef)
     }).catch((error) => {
       console.error("Update went wrong", error)
     })
@@ -341,7 +341,7 @@ class AppStore extends EventEmitter{
     updateDoc(docRef, {
       Wisdom: this.wisdom
     }).then((docRef) => {
-      console.log("Wisdom updated")
+      console.log("Wisdom updated", docRef)
     }).catch((error) => {
       console.error("Update went wrong", error)
     })
@@ -351,7 +351,7 @@ class AppStore extends EventEmitter{
     updateDoc(docRef, {
       Charisma: this.charisma
     }).then((docRef) => {
-      console.log("Charsima updated")
+      console.log("Charsima updated", docRef)
     }).catch((error) => {
       console.error("Update went wrong", error)
     })
@@ -361,7 +361,7 @@ class AppStore extends EventEmitter{
     updateDoc(docRef, {
       ConfirmedStats: this.confirmedStats
     }).then((docRef) => {
-      console.log("ConfirmedStats updated")
+      console.log("ConfirmedStats updated", docRef)
     }).catch((error) => {
       console.error("Update went wrong", error)
     })
@@ -372,7 +372,7 @@ class AppStore extends EventEmitter{
     updateDoc(docRef, {
       StatResults: this.statResults
     }).then((docRef) => {
-      console.log("StatResults updated")
+      console.log("StatResults updated", docRef)
     }).catch((error) => {
       console.error("Update went wrong", error)
     })
@@ -383,7 +383,7 @@ class AppStore extends EventEmitter{
     updateDoc(docRef, {
       States: this.states
     }).then((docRef) => {
-      console.log("States updated")
+      console.log("States updated", docRef)
     }).catch((error) => {
       console.error("Update went wrong", error)
     })
