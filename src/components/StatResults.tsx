@@ -26,6 +26,7 @@ export default function StatResults(){
       }
       states[index] = 0;
       setStates([...states])
+      updateState()
       return
     }else{
       if(prevIndex != -1 && states[prevIndex] != -1){
@@ -37,6 +38,7 @@ export default function StatResults(){
     }
     AppStore.setSelectedNumber(index)
     setStates([...states])
+    updateState()
     console.log(states)
   }
 
@@ -45,17 +47,27 @@ export default function StatResults(){
     states[AppStore.getSelectedNumber()] = -1;
     AppStore.setSelectedNumber(-1)
     setStates([...states])
+    updateState()
+  }
+
+  function updateState(){
+    AppStore.setStates(states)
+  }
+
+  function getResults(){
+    setResults([...AppStore.getStatResults()])
+    setStates([...AppStore.states])
   }
 
   useEffect(() => {
-    console.log(states)
-
     AppStore.on("toggleRoll", addResult)
     AppStore.on("twoSelected", setStat)
+    AppStore.on("updateData", getResults)
 
     return () => {
       AppStore.off("toggleRoll", addResult)
       AppStore.off("twoSelected", setStat)
+      AppStore.off("updateData", getResults)
     }
 
   },[results, states])

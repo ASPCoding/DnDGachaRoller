@@ -1,8 +1,17 @@
 import Stats from './components/Stats'
 import StatSetter from './components/StatSetter'
+import {useEffect} from 'react'
+import AppStore from './stores/AppStore'
+
 import './App.css'
 
 function App() {
+  useEffect(() => {
+    if(AppStore.cookieString != ""){
+      AppStore.retrieveData()
+    }
+  },[])
+
   return (
     <>
       <div>

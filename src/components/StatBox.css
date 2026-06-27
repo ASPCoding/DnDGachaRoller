@@ -16,6 +16,10 @@
   width: 50%;
 }
 
+#text{
+  margin:0%;
+}
+
 #true{
   background: purple;
 }
